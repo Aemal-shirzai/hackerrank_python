@@ -1,10 +1,19 @@
-def mutate_string(string, position, character):
-    list_string = list(string)
-    list_string[position] = character
-    return ''.join(list_string)
+def count_substring(string, sub_string):
+    occurance = 0
+    for i in range(len(string)):
+        c_index = i
+        match_text = ''
+        while c_index < len(string) and len(match_text) < len(sub_string):
+            match_text += string[c_index]
+            if sub_string == match_text:
+                occurance += 1
+            c_index += 1
+            
+    return occurance
 
 if __name__ == '__main__':
-    s = input()
-    i, c = input().split()
-    s_new = mutate_string(s, int(i), c)
-    print(s_new)
+    string = input().strip()
+    sub_string = input().strip()
+    
+    count = count_substring(string, sub_string)
+    print(count)
