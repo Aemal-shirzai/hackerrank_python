@@ -1,8 +1,14 @@
 N = input()
 ROOMS = input().split()
-UNIQUE_ROOMS = set(ROOMS)
 
-for room in list(UNIQUE_ROOMS):
-    ROOMS.remove(room)
+all_rooms = set()
+captain_rooms = set()
 
-print(UNIQUE_ROOMS.difference(set(ROOMS)).pop())
+for room in ROOMS:
+    if room not in all_rooms:
+        all_rooms.add(room)
+        captain_rooms.add(room)
+    else:
+        captain_rooms.discard(room)
+        
+print(captain_rooms.pop())
