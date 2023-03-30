@@ -1,0 +1,2 @@
+E = input()
+eval(E)
